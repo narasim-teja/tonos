@@ -1,0 +1,107 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "wearable-metrics",
+  "url": "https://github.com/narasim-teja/tonos/fhir/CodeSystem/wearable-metrics",
+  "version": "0.1.0",
+  "name": "WearableMetrics",
+  "title": "Wearable metrics without a standard code",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "https://github.com/narasim-teja/tonos",
+  "description": "Codes for wearable measurements that LOINC and the HL7 PHR IG do not cover (heart rate variability as RMSSD), and for WHOOP's proprietary scores, which are vendor-derived and not clinical measurements.",
+  "caseSensitive": true,
+  "content": "complete",
+  "count": 18,
+  "concept": [
+    {
+      "code": "heartRateVariabilityRMSSD",
+      "display": "Heart rate variability RMSSD",
+      "definition": "No LOINC or PHR IG code exists for RMSSD. LOINC 80404-7 and PGHD heartRateVariabilitySDNN are SDNN, a different statistic."
+    },
+    {
+      "code": "whoopRecoveryScore",
+      "display": "WHOOP Recovery",
+      "definition": "WHOOP-proprietary score, 0-100 %. Not a clinical measurement."
+    },
+    {
+      "code": "whoopDayStrain",
+      "display": "WHOOP Day Strain",
+      "definition": "WHOOP-proprietary score, 0-21."
+    },
+    {
+      "code": "whoopActivityStrain",
+      "display": "WHOOP Activity Strain",
+      "definition": "WHOOP-proprietary score, 0-21."
+    },
+    {
+      "code": "whoopSleepPerformance",
+      "display": "WHOOP Sleep Performance",
+      "definition": "WHOOP-proprietary score, 0-100 %."
+    },
+    {
+      "code": "whoopSleepConsistency",
+      "display": "WHOOP Sleep Consistency",
+      "definition": "WHOOP-proprietary score, 0-100 %."
+    },
+    {
+      "code": "whoopSleepNeed",
+      "display": "WHOOP Sleep Need",
+      "definition": "WHOOP's estimate of sleep needed."
+    },
+    {
+      "code": "whoopSleepDebt",
+      "display": "WHOOP Sleep Debt",
+      "definition": "WHOOP's estimate of accumulated sleep debt."
+    },
+    {
+      "code": "awakeDuration",
+      "display": "Awake duration in bed",
+      "definition": "Total awake time in bed, including before first sleep. Not the IG's wakeAfterSleepOnset."
+    },
+    {
+      "code": "workoutDuration",
+      "display": "Workout duration",
+      "definition": "Bridge carries this as text only; coded here."
+    },
+    {
+      "code": "averageHeartRate",
+      "display": "Average heart rate over the period",
+      "definition": "Qualifies LOINC 8867-4 as a mean."
+    },
+    {
+      "code": "maxHeartRate",
+      "display": "Maximum heart rate over the period",
+      "definition": "Qualifies LOINC 8867-4 as a maximum."
+    },
+    {
+      "code": "heartRateZone1Percentage",
+      "display": "Heart rate zone 1 percentage",
+      "definition": "WHOOP zone, % of workout time."
+    },
+    {
+      "code": "heartRateZone2Percentage",
+      "display": "Heart rate zone 2 percentage",
+      "definition": "WHOOP zone, % of workout time."
+    },
+    {
+      "code": "heartRateZone3Percentage",
+      "display": "Heart rate zone 3 percentage",
+      "definition": "WHOOP zone, % of workout time."
+    },
+    {
+      "code": "heartRateZone4Percentage",
+      "display": "Heart rate zone 4 percentage",
+      "definition": "WHOOP zone, % of workout time."
+    },
+    {
+      "code": "heartRateZone5Percentage",
+      "display": "Heart rate zone 5 percentage",
+      "definition": "WHOOP zone, % of workout time."
+    },
+    {
+      "code": "vendor-derived",
+      "display": "Vendor-derived score",
+      "definition": "meta.tag on observations whose value comes from a proprietary algorithm."
+    }
+  ]
+}
