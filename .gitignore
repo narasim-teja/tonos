@@ -1,0 +1,17 @@
+# Personal health data never goes in the repository.
+data/
+example-data/
+*.phr
+*.sphr
+*.sqlite
+*.sqlite-*
+audit.jsonl
+pairings.json
+
+# Secrets (the example file is the one exception)
+.env
+.env.*
+!.env.example
+
+node_modules/
+out/
