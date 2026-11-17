@@ -4,7 +4,7 @@
  *
  *   bun scripts/validate-fhir.ts
  *
- * Needs Java 17+ (`JAVA` env, `java` on PATH, or Homebrew's keg-only openjdk).
+ * Needs Java 17+, found via `JAVA`, `JAVA_HOME`, `java` on PATH, or Homebrew's keg-only openjdk.
  * Validates against the PHR IG's continuous build: the published 1.0.0-ballot2 package
  * (April 2025) does not contain the PGHD profiles at all. Errors the IG itself causes are
  * listed in scripts/known-ig-issues.json with the reason; any other error fails the run.
@@ -29,13 +29,26 @@ async function download(url: string, file: string): Promise<void> {
   await Bun.write(file, response);
 }
 
+/**
+ * A Java that actually runs, in the conventional order: an explicit `JAVA`, then `JAVA_HOME`
+ * (what CI's setup-java and most installers set), then `java` on PATH, then Homebrew's
+ * openjdk, which is keg-only and so on no PATH by default. Candidates that do not exist are
+ * skipped rather than spawned; one that exists but cannot run (macOS's Java stub, an
+ * Intel-only plugin on Apple silicon) is skipped by its exit code.
+ */
 function java(): string {
-  const candidates = [process.env.JAVA, "/opt/homebrew/opt/openjdk/bin/java", "/usr/local/opt/openjdk/bin/java", "java"];
+  const candidates = [
+    process.env.JAVA,
+    process.env.JAVA_HOME ? join(process.env.JAVA_HOME, "bin", "java") : undefined,
+    Bun.which("java") ?? undefined,
+    "/opt/homebrew/opt/openjdk/bin/java",
+    "/usr/local/opt/openjdk/bin/java",
+  ];
   for (const candidate of candidates) {
-    if (!candidate) continue;
-    if (Bun.spawnSync([candidate, "-version"]).exitCode === 0) return candidate;
+    if (candidate === undefined || !existsSync(candidate)) continue;
+    if (Bun.spawnSync([candidate, "-version"], { stdout: "ignore", stderr: "ignore" }).exitCode === 0) return candidate;
   }
-  throw new Error("No working Java found. Install Java 17+ (brew install openjdk) or set JAVA.");
+  throw new Error("No working Java 17+ found. Install one (e.g. brew install openjdk) or set JAVA_HOME.");
 }
 
 // 1. Export the fictional example as a Bundle. Never a real export.
