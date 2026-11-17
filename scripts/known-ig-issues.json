@@ -1,0 +1,6 @@
+[
+  {
+    "pattern": "the discriminator [system] does not have fixed value, binding or existence assertions",
+    "reason": "PHR IG (CI build, 2026-09-17): pghd-vitalsigns and pghd-workout slice code.coding by system, but their PGHDCode slice fixes no system (pghd-activity does). The validator cannot evaluate the slice for any conforming instance, including Health Bridge's. To report upstream."
+  }
+]
