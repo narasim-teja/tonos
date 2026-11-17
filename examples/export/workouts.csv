@@ -1,0 +1,4 @@
+Cycle start time,Cycle end time,Cycle timezone,Workout start time,Workout end time,Duration (min),Activity name,Activity Strain,Energy burned (cal),Max HR (bpm),Average HR (bpm),HR Zone 1 %,HR Zone 2 %,HR Zone 3 %,HR Zone 4 %,HR Zone 5 %,GPS enabled
+2026-03-08 01:05:30,2026-03-09 00:41:12,UTC-04:00,2026-03-08 17:30:00,2026-03-08 18:45:00,75,Tennis,12.1,640,172,138,22,31,28,14,3,false
+2026-03-07 00:15:00,2026-03-08 01:05:30,UTC-05:00,2026-03-07 19:00:00,2026-03-07 19:20:00,20,Sauna,2.0,95,118,104,61,9,0,0,0,false
+2026-03-05 23:20:44,2026-03-07 00:15:00,UTC-05:00,2026-03-06 12:00:00,2026-03-06 12:40:00,40,Activity,6.3,210,141,112,48,30,6,0,0,false

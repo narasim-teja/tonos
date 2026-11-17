@@ -1,0 +1,6 @@
+Cycle start time,Cycle end time,Cycle timezone,Question text,Answered yes,Notes
+2026-03-08 01:05:30,2026-03-09 00:41:12,UTC-04:00,Have any alcoholic drinks?,false,
+2026-03-08 01:05:30,2026-03-09 00:41:12,UTC-04:00,Have any caffeine?,true,"Two espressos, one after 4pm.
+Also a ""decaf"" later"
+2026-03-05 23:20:44,2026-03-07 00:15:00,UTC-05:00,Have any caffeine?,true,
+,,,Read (non-screen) device while in bed?,false,
